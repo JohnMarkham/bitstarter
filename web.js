@@ -9,7 +9,6 @@ app.get('/', function(request, response) {
   if (err) throw err;
   buffer.write(data,"utf-8");
   response.send(buffer.toString('utf-8'));
-#  console.log(data);
 });
 });
 
