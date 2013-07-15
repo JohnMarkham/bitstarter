@@ -5,9 +5,11 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   fs.readFile('index.html', function (err, data) {
+    var buffer = new Buffer(256);
   if (err) throw err;
-  response.send(data);
-  console.log(data);
+  buffer.write(data,"utf-8");
+  response.send(buffer.toString('utf-8'));
+#  console.log(data);
 });
 });
 
